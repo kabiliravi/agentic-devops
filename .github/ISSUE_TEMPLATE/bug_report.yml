@@ -1,0 +1,27 @@
+name: Bug report
+description: Report incorrect or unsafe skill instructions (no sensitive details).
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "For vulnerabilities use SECURITY.md, not this public form. Never include credentials or raw sensitive logs."
+  - type: input
+    id: skill
+    attributes:
+      label: Skill path and revision
+      placeholder: skills/iac/terraform-opentofu/SKILL.md at commit
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Sanitized reproduction
+      description: Include tool versions and environment type, without secrets or private endpoints.
+    validations:
+      required: true

@@ -46,7 +46,7 @@ Use for Azure resource provisioning, Bicep deployments, managed identity/RBAC de
      --parameters @parameters.json --result-format ResourceIdOnly
    ```
 
-   Keep parameter files secret-free, use Key Vault references where supported, and treat diagnostics as sensitive. Resolve policy errors and investigate deletions/replacements; what-if can be incomplete for runtime-resolved values.
+   Keep parameter files secret-free, use Key Vault references where supported, and treat diagnostics as sensitive. `ResourceIdOnly` is only a resource inventory summary; before approval, require a sanitized property-level before/after diff covering IAM, network access, and other changed settings. Obtain that diff through an approved protected review workflow using `FullResourcePayload` only when sensitive values can be kept out of agent output and shared logs; stop if safe review is unavailable. Resolve policy errors and investigate deletions/replacements; what-if can be incomplete for runtime-resolved values.
 4. **Obtain explicit user confirmation before destructive or production-affecting actions**, including group creation, RBAC/network updates, or deployments affecting production. Confirm scope, preview, cost, recovery plan, and downtime, then deploy:
 
    ```sh

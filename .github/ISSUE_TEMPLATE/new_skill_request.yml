@@ -1,0 +1,24 @@
+name: New skill request
+description: Propose a portable infrastructure skill.
+title: "[Skill]: "
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Proposed lowercase-hyphenated name and category
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Purpose and environments
+      description: Explain cloud, local, or on-prem use cases and overlap with existing skills.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety and recovery
+      description: Describe target selection, read-only checks, approval gates, verification, rollback, and secret handling.
+    validations:
+      required: true

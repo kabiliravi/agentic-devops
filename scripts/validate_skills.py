@@ -47,9 +47,23 @@ def validate(path):
     description = metadata.get("description")
     if not isinstance(description, str) or not description.strip():
         errors.append("description must be a non-empty string")
-    headings = {
-        line[3:].strip() for line in lines[end + 1 :] if line.startswith("## ")
-    }
+    headings = set()
+    fence = None
+    for line in lines[end + 1 :]:
+        marker = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", line)
+        if fence is not None:
+            if (
+                marker
+                and marker.group(1)[0] == fence[0]
+                and len(marker.group(1)) >= len(fence)
+                and not marker.group(2).strip()
+            ):
+                fence = None
+            continue
+        if marker and (marker.group(1)[0] != "`" or "`" not in marker.group(2)):
+            fence = marker.group(1)
+        elif line.startswith("## "):
+            headings.add(line[3:].strip())
     for section in SECTIONS:
         if section not in headings:
             errors.append(f"missing section: {section}")

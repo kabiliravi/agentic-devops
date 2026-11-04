@@ -28,7 +28,7 @@ Use for Azure resource provisioning, Bicep deployments, managed identity/RBAC de
 1. **Identify the cloud account target first; begin read-only.**
 
    ```sh
-   az account show --query '{tenant:tenantId,subscription:id,name:name}' -o table
+   az account show --subscription "$SUBSCRIPTION_ID" --query '{tenant:tenantId,subscription:id,name:name}' -o table
    az group show --subscription "$SUBSCRIPTION_ID" --name "$RESOURCE_GROUP" \
      --query '{name:name,location:location,id:id}' -o table
    ```

@@ -59,7 +59,10 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement through
+reported privately to the project maintainers using the contact information on
+[the project maintainer's GitHub profile](https://github.com/kabiliravi). Please
+do not post incident details in public issues or discussions. Reports about
+abuse of GitHub-hosted content or accounts may be submitted separately through
 [GitHub's private Report abuse channel](https://docs.github.com/en/site-policy/abuse-reports-and-investigations/reporting-abuse-or-spam).
 All complaints will be reviewed and investigated promptly and fairly.
 
